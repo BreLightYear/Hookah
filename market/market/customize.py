@@ -4,7 +4,7 @@ Django, hopefully providing a base level of modifications to those with more lim
 """
 
 cust_vals = {
-    'c_title':'HarvestHere',
+    'c_title':'Hookah Store',
     'c_logo':False,
     'c_logo_path':None,
 }
