@@ -11,7 +11,7 @@ from market.apps.core.models import UserProfile
 
 class MarketLoginForm(LoginForm):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(MarketLoginForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper(self)
         self.helper.layout = layout.Layout(
@@ -31,7 +31,7 @@ class MarketSignupForm(SignupForm):
     name = forms.CharField(max_length=200)
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(MarketSignupForm,self).__init__(*args, **kwargs)
 
         # TODO: Add help texts
         self.helper = FormHelper(self)

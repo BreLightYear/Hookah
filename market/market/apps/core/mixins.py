@@ -11,7 +11,7 @@ class CreateWithOwnerMixin(LoginRequiredMixin):
     """
     # TODO: Determine best implementation of this
     def get_form(self, *args, **kwargs):
-        form = super().get_form(*args, **kwargs)
+        form = super(LoginRequiredMixin, self).get_form(*args, **kwargs)
 
         form.instance.owner = UserProfile.objects.get(user=self.request.user)
         return form
@@ -33,7 +33,7 @@ class CreateWithReviewerMixin(LoginRequiredMixin):
      of the form in this view.
     """
     def get_form(self, *args, **kwargs):
-        form = super().get_form(*args, **kwargs)
+        form = super(CreateWithReviewerMixin, self).get_form(*args, **kwargs)
         form.instance.reviewer = UserProfile.objects.get(user=self.request.user)
         return form
 

@@ -1,3 +1,4 @@
+# -*- coding: utf 8 -*-
 from django import forms
 
 from crispy_forms import (bootstrap,
@@ -11,7 +12,7 @@ from market.apps.board.models import Post
 # Form to handle the niput of images.
 class ImageHelper(FormHelper):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(ImageHelper, self).__init__(*args, **kwargs)
         # self.layout = Layout(
         #     'image'
         # )
@@ -29,7 +30,7 @@ class PostForm(forms.ModelForm):
 
     # Appearance of the Form
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(PostForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper(self)
         self.helper.layout = layout.Layout(
@@ -38,7 +39,7 @@ class PostForm(forms.ModelForm):
                 layout.Field('title', placeholder='A snappy title'),
                 'body',
                 'tags',
-                bootstrap.PrependedAppendedText('price', '$', 'USD'),
+                bootstrap.PrependedAppendedText('price', 'r$', 'REAL'),
                 'unit',
                 'location'
             ),
@@ -66,7 +67,7 @@ class PostUpdateForm(forms.ModelForm):
                 layout.Field('title', placeholder='A snappy title'),
                 'body',
                 'tags',
-                bootstrap.PrependedText('price', '$'),
+                bootstrap.PrependedText('price', 'R$'),
                 'unit',
                 'location'
             ),

@@ -1,3 +1,4 @@
+# -*- coding: utf 8 -*-
 from django.db import models
 from django.conf import settings
 
@@ -18,8 +19,9 @@ class UserProfile(RandomSlugModel):
     this model to maintain separation from the authentication backend.
     """
     ACCOUNT_TYPE_CHOICES = (
-        ('0', "I'm a buyer"),
-        ('1', "I'm a seller"),
+        ('0', "Escolha seu tipo de cadastro"),
+        ('1', "Usuário"),
+        ('2', "Loja"),
     )
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')

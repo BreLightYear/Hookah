@@ -13,7 +13,7 @@ from market.apps.core.models import (RandomSlugModel,
 
 class PostManager(models.Manager):
     def search(self, **kwargs):
-        qs = super().get_queryset()
+        qs = super(PostManager, self).get_queryset()
 
         # TODO:
         # Split query into words, case insensitive search each field:

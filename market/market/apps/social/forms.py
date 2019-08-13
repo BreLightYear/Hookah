@@ -16,7 +16,7 @@ class ReviewForm(forms.ModelForm):
         fields = ['reviewee', 'score', 'title', 'body']
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(ReviewForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper(self)
         self.helper.layout = layout.Layout(
             layout.Fieldset(
@@ -40,7 +40,7 @@ class SocialProfileUpdateForm(forms.ModelForm):
         widgets = {'location': LeafletWidget()}
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(SocialProfileUpdateForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper(self)
         self.helper.layout = layout.Layout(

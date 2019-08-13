@@ -67,7 +67,7 @@ class MessageListView(LoginRequiredMixin, ListView):
     paginate_by = 16
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(MessageListView, self).get_context_data(**kwargs)
         context['outbox'] = Message.objects.filter(sender=self.request.profile).order_by('-created')
         context['inbox'] = Message.objects.filter(recipient=self.request.profile).order_by('-created')
         return context

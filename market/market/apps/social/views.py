@@ -30,7 +30,7 @@ class ReviewCreateView(CreateWithReviewerMixin, CreateWithInlinesView):
     template_name = 'social/review_form.html'
 
     def get_form(self, form_class):
-        form = super().get_form(ReviewForm)
+        form = super(ReviewCreateView, self).get_form(ReviewForm)
         reviewee = UserProfile.objects.filter(slug=self.kwargs['slug'])
         if len(reviewee) > 0:
             form.fields['reviewee'].queryset = reviewee
@@ -60,7 +60,7 @@ class SocialProfileSelfDetailView(SellerRequiredMixin, DetailView):
         return SocialProfile.objects.get(owner=self.request.profile)
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(SocialProfileSelfDetailView, self).get_context_data(**kwargs)
         context['posts_list'] = Post.objects.filter(owner=self.request.profile).order_by("-modified")
         context['reviews_list'] = Review.objects.filter(reviewee=self.request.profile).order_by("-modified")
         if len(context['reviews_list']) > 0:
@@ -92,7 +92,7 @@ class SocialProfileDetailView(DetailView):
     template_name = 'social/profile_detail.html'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(SocialProfileDetailView, self).get_context_data(**kwargs)
         user = SocialProfile.objects.get(slug=self.kwargs['slug']).owner
         context['posts_list'] = Post.objects.filter(owner=user).order_by("-modified")
         context['reviews_list'] = Review.objects.filter(reviewee=user).order_by("-modified")

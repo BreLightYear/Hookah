@@ -37,7 +37,7 @@ class PostCreateView(CreateWithOwnerMixin, SellerRequiredMixin, CreateWithInline
     template_name = 'board/post_form.html'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(PostCreateView, self).get_context_data(**kwargs)
         context['image_helper'] = ImageHelper()
         return context
 
@@ -61,7 +61,7 @@ class PostDetailView(DetailView):
     template_name = 'board/post_detail.html'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(PostDetailView, self).get_context_data(**kwargs)
 
         # Get most similar posts by tags
         # TODO: Also weight by distance
@@ -78,7 +78,7 @@ class PostSearchView(ListView):
 
     # Get the more specific results
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(ListView, self).get_context_data(**kwargs)
         query = self.request.GET.get('q', '')
         if query != '':
             sort_rule = self.request.GET.get('sort')
