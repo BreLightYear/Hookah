@@ -3,14 +3,15 @@
 {% load account socialaccount %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}Sign In{% endblock %}
+{% block head_title %}Register{% endblock %}
+<title>{% block title %}Register{% endblock title %}</title>
 
 {% block content %}
   {% comment %}Row containing Title and Actions{% endcomment %}
   <div class="row mb-3">
     <div class="col-12 col-sm-6 mb-3 mb-sm-0">
       {# Title #}
-      <span class="h1">Sign Up</span>
+      <span class="h1">Registrar</span>
     </div>
     <div class="col-12 col-sm-6 text-sm-right">
       {# Actions #}
@@ -44,7 +45,7 @@
         <p>Need an account? <a href="{{ signup_url }}">Sign up here.</a></p>
       {% endif %}
       {% endcomment %}
-      <p>Already have an account? <a href="{% url 'account_login' %}">Sign in here.</a></p>
+      <p>Ja tem uma conta? <a href="{% url 'account_login' %}">Entre aqui.</a></p>
 
       {% crispy form %}
 
