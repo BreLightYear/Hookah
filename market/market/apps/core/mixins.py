@@ -45,7 +45,7 @@ class CreateWithSenderMixin(LoginRequiredMixin):
     """
     # TODO: Determine best implementation of this
     def get_form(self, *args, **kwargs):
-        form = super().get_form(*args, **kwargs)
+        form = super(CreateWithSenderMixin, self).get_form(*args, **kwargs)
 
         form.instance.sender = UserProfile.objects.get(user=self.request.user)
         return form
