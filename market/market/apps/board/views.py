@@ -146,7 +146,7 @@ class PostUpdateView(OwnerRequiredMixin, UpdateWithInlinesView):
     template_name = 'board/post_update_form.html'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(PostUpdateView, self).get_context_data(**kwargs)
         context['image_helper'] = ImageHelper()
         return context
 

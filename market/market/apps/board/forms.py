@@ -57,7 +57,7 @@ class PostUpdateForm(forms.ModelForm):
         widgets = {'location': LeafletWidget()}
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(PostUpdateForm, self).__init__(*args, **kwargs)
 
         # TODO: Don't repeat from the PostForm
         self.helper = FormHelper(self)
