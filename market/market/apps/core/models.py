@@ -19,18 +19,18 @@ class UserProfile(RandomSlugModel):
     this model to maintain separation from the authentication backend.
     """
     ACCOUNT_TYPE_CHOICES = (
-        ('0', "Escolha seu tipo de cadastro"),
+        ('0', ""),
         ('1', "Usuário"),
         ('2', "Loja"),
     )
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
 
-    type = models.CharField(max_length=1, choices=ACCOUNT_TYPE_CHOICES, default='0')
-    name = models.CharField('name', max_length=200)
+    tipo = models.CharField(max_length=1, choices=ACCOUNT_TYPE_CHOICES, default='0')
+    nome = models.CharField('nome', max_length=200)
     @property
     def is_seller(self):
-        return self.type == self.ACCOUNT_TYPE_CHOICES[1][0]
+        return self.tipo == self.ACCOUNT_TYPE_CHOICES[1][0]
 
     def __str__(self):
-        return self.name
+        return self.nome
