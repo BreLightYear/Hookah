@@ -28,7 +28,7 @@ class MarketLoginForm(LoginForm):
 
 class MarketSignupForm(SignupForm):
     tipo = forms.ChoiceField(choices=UserProfile.ACCOUNT_TYPE_CHOICES)
-    nome = forms.CharField(max_length=200)
+    name = forms.CharField(max_length=200)
 
     def __init__(self, *args, **kwargs):
         super(MarketSignupForm,self).__init__(*args, **kwargs)
@@ -40,7 +40,7 @@ class MarketSignupForm(SignupForm):
                 '',
                 'email',
                 'tipo',
-                'nome',
+                'name',
                 'password1',
                 'password2',
             ),
