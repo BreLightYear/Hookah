@@ -18,6 +18,7 @@ django-tagulous = {git = "git://github.com/radiac/django-tagulous.git",ref = "fe
 django-geojson = {extras = ["field"],version = "==2.10.0"}
 Django = "==1.11.22"
 Pillow = "==4.3.0"
+rcssmin = "*"
 
 [requires]
-python_version = "2.7"
+python_version = "3.5"
