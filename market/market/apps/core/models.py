@@ -12,7 +12,7 @@ class RandomSlugModel(models.Model):
         abstract = True
 
 
-class UserProfile(RandomSlugModel):
+class UserProfile(RandomSlugModel, models.Model):
     """
     This is an extension to the default User model, created on
     registration for each user. All relations to a User are through
@@ -28,6 +28,8 @@ class UserProfile(RandomSlugModel):
 
     tipo = models.CharField(max_length=1, choices=ACCOUNT_TYPE_CHOICES, default='0')
     name = models.CharField('nome', max_length=200)
+    phone_number1 = models.PhoneNumberField('telefone', max_length=50, default='')
+
     @property
     def is_seller(self):
         return self.tipo == self.ACCOUNT_TYPE_CHOICES[1][0]
