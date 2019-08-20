@@ -289,7 +289,7 @@ ADMIN_URL = r'^admin/'
 # ---
 INSTALLED_APPS += ['djgeojson', 'leaflet']
 LEAFLET_CONFIG = {
-    'DEFAULT_CENTER': (42.7287845, -73.6845236),
+    'DEFAULT_CENTER': (-23.693889, -46.565),
     'DEFAULT_ZOOM': 14,
     'MIN_ZOOM': 3,
     'MAX_ZOOM': 18,
