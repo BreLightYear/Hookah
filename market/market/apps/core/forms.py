@@ -30,6 +30,10 @@ class MarketSignupForm(SignupForm):
     tipo = forms.ChoiceField(choices=UserProfile.ACCOUNT_TYPE_CHOICES)
     name = forms.CharField(max_length=200)
     sexo = forms.ChoiceField(choices=UserProfile.TYPE_SEX, required=True)
+    adress = forms.CharField(max_length=50, required=True)
+    adress_number = forms.CharField(max_length=16, required=True)
+    district = forms.ChoiceField(choices=UserProfile.DISTRICT, required=True)
+    
 
     def __init__(self, *args, **kwargs):
         super(MarketSignupForm,self).__init__(*args, **kwargs)
@@ -39,10 +43,13 @@ class MarketSignupForm(SignupForm):
         self.helper.layout = layout.Layout(
             layout.Fieldset(
                 '',
+                'tipo',
                 'name',
                 'sexo',
+                'adress',
+                'adress_number',
+                'district',
                 'email',
-                'tipo',
                 'password1',
                 'password2',
             ),
