@@ -6,7 +6,7 @@ from market.apps.board.models import Post
 # the way in which it appears.
 class PostAdmin(admin.ModelAdmin):
     model = Post
-    list_display = ('title', 'body')
+    list_display = ('title', 'descricao')
 
 
 admin.site.register(Post, PostAdmin)

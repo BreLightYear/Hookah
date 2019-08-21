@@ -25,7 +25,7 @@ class ImageHelper(FormHelper):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'body', 'tags', 'price', 'unit', 'location']
+        fields = ['title', 'descricao', 'tags', 'price', 'unit', 'location']
         widgets = {'location': LeafletWidget()}
 
     # Appearance of the Form
@@ -37,7 +37,7 @@ class PostForm(forms.ModelForm):
             layout.Fieldset(
                 '',
                 layout.Field('title', placeholder='A snappy title'),
-                'body',
+                'descricao',
                 'tags',
                 bootstrap.PrependedAppendedText('price', 'r$', 'REAL'),
                 'unit',
@@ -53,7 +53,7 @@ class PostForm(forms.ModelForm):
 class PostUpdateForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'body', 'tags', 'price', 'unit', 'location']
+        fields = ['title', 'descricao', 'tags', 'price', 'unit', 'location']
         widgets = {'location': LeafletWidget()}
 
     def __init__(self, *args, **kwargs):
@@ -65,7 +65,7 @@ class PostUpdateForm(forms.ModelForm):
             layout.Fieldset(
                 '',
                 layout.Field('title', placeholder='A snappy title'),
-                'body',
+                'descricao',
                 'tags',
                 bootstrap.PrependedText('price', 'R$'),
                 'unit',

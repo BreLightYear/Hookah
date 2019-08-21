@@ -34,9 +34,8 @@ class PostManager(models.Manager):
 # Posts submitted by users on the site.
 class Post(RandomSlugModel, TimeStampedModel):
     UNIT_CHOICES = (
-        ('pound', 'POUND'),
-        ('gallon', 'GALLON'),
-        ('each', 'EACH'),
+        ('gramas', 'g'),
+        ('kilos', 'KG')
     )
 
     # todo: custom queryset to get active posts
@@ -47,7 +46,7 @@ class Post(RandomSlugModel, TimeStampedModel):
     # todo: Remove activatormodel?
 
     title = models.CharField(max_length=300)
-    body = models.TextField(max_length=5000)
+    descricao = models.TextField(max_length=5000)
 
     # TODO: Use autocomplete_initial=True and specify preset tags?
     tags = TagField(max_count=10, force_lowercase=True, space_delimiter=False, blank=True)

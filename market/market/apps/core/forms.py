@@ -1,5 +1,7 @@
 from django import forms
 
+from .choices import ACCOUNT_TYPE_CHOICES, DISTRICT, TYPE_SEX
+
 from allauth.account.forms import (SignupForm,
                                    LoginForm)
 from crispy_forms import (bootstrap,
@@ -27,14 +29,13 @@ class MarketLoginForm(LoginForm):
 
 
 class MarketSignupForm(SignupForm):
-    tipo = forms.ChoiceField(choices=UserProfile.ACCOUNT_TYPE_CHOICES)
+    tipo = forms.ChoiceField(choices=ACCOUNT_TYPE_CHOICES)
     name = forms.CharField(max_length=200)
-    sexo = forms.ChoiceField(choices=UserProfile.TYPE_SEX, required=True)
+    sexo = forms.ChoiceField(choices=TYPE_SEX, required=True)
     adress = forms.CharField(max_length=50, required=True)
     adress_number = forms.CharField(max_length=16, required=True)
-    district = forms.ChoiceField(choices=UserProfile.DISTRICT, required=True)
+    district = forms.ChoiceField(choices=DISTRICT, required=True)
     
-
     def __init__(self, *args, **kwargs):
         super(MarketSignupForm,self).__init__(*args, **kwargs)
 
