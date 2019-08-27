@@ -18,11 +18,11 @@ class RandomSlugModel(models.Model):
 class UserProfile(RandomSlugModel):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
     tipo = models.CharField(max_length=1, choices=ACCOUNT_TYPE_CHOICES, blank=True, default=0)
-    name = models.CharField('nome', max_length=200)
+    name = models.CharField('nome', max_length=200,)
     sexo = models.CharField(max_length=1, choices=TYPE_SEX, blank=True)
-    adress = models.CharField(max_length=50, blank=True, null=True)
-    adress_number = models.CharField(max_length=16, blank=True, null=True)
-    district = models.CharField(max_length=1, choices= DISTRICT, blank=True, default=0)
+    # adress = models.CharField(max_length=50, blank=True, null=True)
+    # adress_number = models.CharField(max_length=16, blank=True, null=True)
+    # district = models.CharField(max_length=1, choices= DISTRICT, blank=True, default=0)
     created_in = models.DateField(auto_now_add=True, blank=True, null=True)
 
     @property
