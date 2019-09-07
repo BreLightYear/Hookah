@@ -78,7 +78,7 @@ class PostSearchView(ListView):
 
     # Get the more specific results
     def get_context_data(self, **kwargs):
-        context = super(ListView, self).get_context_data(**kwargs)
+        context = super(PostSearchView, self).get_context_data(**kwargs)
         query = self.request.GET.get('q', '')
         if query != '':
             sort_rule = self.request.GET.get('sort')

@@ -39,7 +39,7 @@ class PostForm(forms.ModelForm):
                 layout.Field('title', placeholder='A snappy title'),
                 'descricao',
                 'tags',
-                bootstrap.PrependedAppendedText('price', 'r$', 'REAL'),
+                bootstrap.PrependedAppendedText('price', 'R$', 'REAL'),
                 'unit',
                 'location'
             ),

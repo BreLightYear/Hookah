@@ -34,8 +34,8 @@ class PostManager(models.Manager):
 # Posts submitted by users on the site.
 class Post(RandomSlugModel, TimeStampedModel):
     UNIT_CHOICES = (
-        ('gramas', 'g'),
-        ('kilos', 'KG')
+        ('grama', 'Grama'),
+        ('kilo', 'Kilo')
     )
 
     # todo: custom queryset to get active posts
@@ -52,7 +52,7 @@ class Post(RandomSlugModel, TimeStampedModel):
     tags = TagField(max_count=10, force_lowercase=True, space_delimiter=False, blank=True)
 
     price = models.DecimalField(max_digits=7, decimal_places=2)
-    unit = models.CharField(max_length=80, choices=UNIT_CHOICES, default='each')
+    unit = models.CharField(max_length=80, choices=UNIT_CHOICES, default='grama')
 
     # location = models.CharField(max_length=5)
     location = PointField()
