@@ -6,17 +6,17 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django-allauth = "==0.34.0"
+django-allauth = "==0.33.0"
 python-decouple = "==3.1"
-django-compressor = "*"
+django-compressor = "==2.2"
 django-libsass = "==0.7"
 django-crispy-forms = "==1.7.0"
 django-extensions = "==1.9.1"
 django-extra-views = "==0.9.0"
 django-prices = "==0.7.1"
-django-tagulous = {git = "git://github.com/radiac/django-tagulous.git",ref = "feature/django-1_11"}
+django-tagulous = "*"
 django-geojson = {extras = ["field"],version = "==2.10.0"}
-Django = "==1.11.22"
+Django = "==1.11.5"
 Pillow = "==4.3.0"
 
 [requires]
