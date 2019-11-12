@@ -23,7 +23,7 @@ class MessageCreateView(CreateWithSenderMixin, CreateWithInlinesView):
     template_name = 'messaging/message_form.html'
 
     def get_form(self, form_class):
-        form = super().get_form(MessageForm)
+        form = super(MessageCreateView, self).get_form(MessageForm)
         recipient = UserProfile.objects.filter(slug=self.kwargs['slug'])
         if len(recipient) > 0:
             form.fields['recipient'].queryset = recipient
@@ -44,7 +44,7 @@ class MessageDetailView(DetailView):
 
     # Get's the communicator's social profile, if a seller.
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(MessageDetailView, self).get_context_data(**kwargs)
         message = Message.objects.get(slug=self.kwargs['slug'])
         # If the message is for us, grab profile for the sender, otherwise the recipient
         if message.recipient == self.request.profile:

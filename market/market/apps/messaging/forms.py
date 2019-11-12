@@ -9,7 +9,7 @@ from crispy_forms.layout import (Field,
                                  Layout,
                                  Submit)
 
-from market.apps.messaging.models import Message
+from .models import Message
 
 # Form through which messages can be sent.
 class MessageForm(forms.ModelForm):
@@ -18,7 +18,7 @@ class MessageForm(forms.ModelForm):
         fields = ['recipient', 'subject', 'body', 'referenced_post']
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(MessageForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper(self)
         self.helper.layout = Layout(
             layout.Fieldset(
